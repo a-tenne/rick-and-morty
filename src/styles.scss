@@ -1,0 +1,25 @@
+/* SCSS HEX */
+$raisin-black: #272932ff;
+$steel-blue: #4d7ea8ff;
+$gray: #828489ff;
+$rose-quartz: #9e90a2ff;
+$powder-blue: #b6c2d9ff;
+
+body {
+  background-color: $powder-blue;
+}
+
+.nav-link {
+  color: $powder-blue;
+}
+
+.navbar-brand {
+  color: $rose-quartz;
+}
+
+.card {
+  color: $powder-blue;
+  a {
+    text-decoration: none;
+  }
+}

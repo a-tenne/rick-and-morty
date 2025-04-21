@@ -1,0 +1,43 @@
+<h2 *ngIf="!character(); else character_card">Loading Character...</h2>
+<ng-template #character_card>
+  <div class="card p-2 bg-dark" *ngIf="character()">
+    <h4 class="card-title">{{ character()!.name }}</h4>
+    <img
+      [src]="character()!.image"
+      [alt]="`Image of ${character()!.name}`"
+      class="card-img-top"
+    />
+    <div class="card-body">
+      <p class="card-text">Status: {{ character()!.status }}</p>
+
+      <p class="card-text">Species: {{ character()!.species }}</p>
+      <p class="card-text">
+        Type: {{ character()!.type.length > 0 ? character()!.type : "N/A" }}
+      </p>
+      <p class="card-text">Gender: {{ character()!.gender }}</p>
+      <p class="card-text">
+        Origin:
+
+        <a
+          *ngIf="character()!.origin.name !== 'unknown'; else origin_no_url"
+          [href]="character()!.origin.url"
+          >{{ character()!.origin.name }}</a
+        >
+        <ng-template #origin_no_url>
+          <span>unknown</span>
+        </ng-template>
+      </p>
+      <p class="card-text">
+        Location:
+        <a
+          *ngIf="character()!.location.name !== 'unknown'; else location_no_url"
+          [href]="character()!.location.url"
+          >{{ character()!.location.name }}</a
+        >
+      </p>
+      <ng-template #location_no_url>
+        <span>unknown</span>
+      </ng-template>
+    </div>
+  </div>
+</ng-template>

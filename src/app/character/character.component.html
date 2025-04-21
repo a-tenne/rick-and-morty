@@ -1,0 +1,8 @@
+<div class="d-flex flex-column justify-content-center align-items-center mt-4">
+  <div class="d-grid gap-2" id="home-character-container">
+    <button type="button" class="btn btn-dark" (click)="randomIdWrapper()">
+      Get Random Character
+    </button>
+    <app-character-card [characterId]="characterId()" />
+  </div>
+</div>
