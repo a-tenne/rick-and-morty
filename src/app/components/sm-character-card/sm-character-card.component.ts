@@ -1,11 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { Character } from '../../../models/character';
 
 @Component({
   selector: 'app-sm-character-card',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './sm-character-card.component.html',
-  styleUrl: './sm-character-card.component.scss'
+  styleUrl: './sm-character-card.component.scss',
 })
-export class SmCharacterCardComponent {
-
-}
+export class SmCharacterCardComponent {}

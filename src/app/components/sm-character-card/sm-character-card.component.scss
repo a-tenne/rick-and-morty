@@ -1,0 +1,17 @@
+a {
+  text-decoration: none;
+  .card {
+    width: 20%;
+    img {
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+      width: 100%;
+      height: fit-content;
+    }
+  }
+  .card:hover {
+    transform: scale(1.02);
+    transition: transform 0.2s ease-in-out;
+    box-shadow: 0 4px 8px rgba(213, 213, 213, 0.2);
+  }
+}
