@@ -1,1 +1,18 @@
-<app-sm-character-card />
+<div *ngIf="currentPage() !== null">
+  <div class="container">
+    <div class="row">
+      <div
+        *ngFor="let character of currentPage()!.results"
+        class="col-12 col-md-6 col-lg-4 col-xl-3 mt-2"
+      >
+        <app-sm-character-card [character]="character"></app-sm-character-card>
+      </div>
+      <div class="row">
+        <app-pagination
+          [pageInfo]="currentPage()!.info"
+          [currentPageNum]="currentPageNum()"
+        />
+      </div>
+    </div>
+  </div>
+</div>

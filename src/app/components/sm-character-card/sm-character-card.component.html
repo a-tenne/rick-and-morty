@@ -1,19 +1,22 @@
-<a routerLink="/">
-  <div class="card bg-dark">
-    <div class="row g-0">
-      <div class="col">
-        <img
-          src="https://rickandmortyapi.com/api/character/avatar/492.jpeg"
-          alt="card-img-left"
-        />
-      </div>
-      <div class="col">
-        <div class="card-body">
-          <b>
-            <h5 class="card-title">bla bla</h5>
-          </b>
-          <p class="card-text">Hallo</p>
-        </div>
+<a
+  [routerLink]="['/character', character.id]"
+  class="card-link text-decoration-none"
+>
+  <div
+    class="character-card bg-dark text-white rounded overflow-hidden d-flex flex-row"
+  >
+    <div class="card-image">
+      <img [src]="character.image" [alt]="character.name" />
+    </div>
+    <div class="card-content d-flex align-items-center">
+      <div class="card-body">
+        <h5 class="card-title mb-2">{{ character.name }}</h5>
+        <p class="card-text mb-1">
+          Species: <b>{{ character.species }}</b>
+        </p>
+        <p class="card-text mb-0">
+          Status: <b>{{ character.status }}</b>
+        </p>
       </div>
     </div>
   </div>

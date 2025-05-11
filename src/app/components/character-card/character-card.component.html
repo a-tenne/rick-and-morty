@@ -18,11 +18,9 @@
       <p class="card-text">
         Origin:
 
-        <a
-          *ngIf="character()!.origin.name !== 'unknown'; else origin_no_url"
-          [href]="character()!.origin.url"
-          >{{ character()!.origin.name }}</a
-        >
+        <a *ngIf="character()!.origin.name !== 'unknown'; else origin_no_url">{{
+          character()!.origin.name
+        }}</a>
         <ng-template #origin_no_url>
           <span>unknown</span>
         </ng-template>
@@ -31,7 +29,6 @@
         Location:
         <a
           *ngIf="character()!.location.name !== 'unknown'; else location_no_url"
-          [href]="character()!.location.url"
           >{{ character()!.location.name }}</a
         >
       </p>

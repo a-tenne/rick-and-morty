@@ -28,4 +28,13 @@ export const routes: Routes = [
       );
     },
   },
+  {
+    path: 'characters/:page',
+    pathMatch: 'full',
+    loadComponent: () => {
+      return import('./characters/characters.component').then(
+        (m) => m.CharactersComponent
+      );
+    },
+  },
 ];

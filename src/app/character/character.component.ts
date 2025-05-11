@@ -4,26 +4,30 @@ import { CharacterService } from '../services/character.service';
 import { Character } from '../../models/character';
 import { Page } from '../../models/common';
 import { catchError } from 'rxjs';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-character',
-  imports: [CharacterCardComponent],
+  imports: [CharacterCardComponent, RouterLink, NgIf],
   templateUrl: './character.component.html',
   styleUrl: './character.component.scss',
 })
 export class CharacterComponent implements OnInit {
   private characterService = inject(CharacterService);
   characterId = signal(0);
-  private characterPage = signal<Page<Character> | null>(null);
+  characterPage = signal<Page<Character> | null>(null);
 
   constructor(private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-    if (!Number.isNaN(id)) {
-      this.characterId.set(id);
-    }
+    this.route.paramMap.subscribe((params) => {
+      const param = params.get('id');
+      const id = Number(param);
+      if (!Number.isNaN(id)) {
+        this.characterId.set(id);
+      }
+    });
     this.characterService
       .getCharacterPage()
       .pipe(
@@ -40,11 +44,7 @@ export class CharacterComponent implements OnInit {
       });
   }
 
-  private randomId(): number {
+  public randomId(): number {
     return Math.ceil(Math.random() * this.characterPage()!.info.count);
-  }
-
-  randomIdWrapper(): void {
-    this.characterId.set(this.randomId());
   }
 }

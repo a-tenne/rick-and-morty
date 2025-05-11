@@ -7,14 +7,16 @@ interface Info {}
 
 type PageType = Location | Character | Episode;
 
+interface PageInfo {
+  count: number;
+  pages: number;
+  next: Url | null;
+  prev: Url | null;
+}
+
 interface Page<T extends PageType> {
-  info: {
-    count: number;
-    pages: number;
-    next?: Url;
-    prev?: Url;
-  };
+  info: PageInfo;
   results: T[];
 }
 
-export { Url, Page };
+export { Url, Page, PageInfo };

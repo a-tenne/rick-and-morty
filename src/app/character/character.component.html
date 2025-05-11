@@ -1,6 +1,13 @@
-<div class="d-flex flex-column justify-content-center align-items-center">
+<div
+  *ngIf="characterPage() !== null"
+  class="d-flex flex-column justify-content-center align-items-center"
+>
   <div class="d-grid gap-2" id="home-character-container">
-    <button type="button" class="btn btn-dark" (click)="randomIdWrapper()">
+    <button
+      type="button"
+      class="btn btn-dark"
+      [routerLink]="['/character', randomId()]"
+    >
       Get Random Character
     </button>
     <app-character-card [characterId]="characterId()" />

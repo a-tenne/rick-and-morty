@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, Input, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Character } from '../../../models/character';
 
@@ -8,4 +8,6 @@ import { Character } from '../../../models/character';
   templateUrl: './sm-character-card.component.html',
   styleUrl: './sm-character-card.component.scss',
 })
-export class SmCharacterCardComponent {}
+export class SmCharacterCardComponent {
+  @Input() character!: Character;
+}
